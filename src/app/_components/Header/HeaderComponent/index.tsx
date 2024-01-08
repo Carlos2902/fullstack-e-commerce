@@ -3,7 +3,6 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import MobileNav from '../MobileNav'
 
 import { Header } from 'next/dist/lib/load-custom-routes'
 import { Gutter } from '../../Gutter'
@@ -27,7 +26,6 @@ const HeaderComponent = ({header}: {header:Header}) => {
             </Link> 
 
             <HeaderNav header={header}/>
-            <MobileNav header={header}/>
         </Gutter>
     </nav>
   )
