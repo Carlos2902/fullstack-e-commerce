@@ -27,6 +27,13 @@
     background-size: cover;
     background-position: center;
   }
+
+
+  @include large-break {
+    // Adjust background size for large screens if needed
+    background-size: cover;
+    background-position: center;
+  }
 }
 
 .heroTextBox {
