@@ -58,19 +58,22 @@ export default async function Page({ params: { slug = 'home' } }) {
   return (
     <React.Fragment>
       {slug==='home'?(
-        <section>
-          <Hero{...hero}/>
+          <section>
+          <Hero {...hero} />
+
           <Gutter>
-            {/* categories */}
+
+            {/* <Categories categories={categories} />
+            <Promotion /> */}
           </Gutter>
-        </section>
+          </section>
       ):(
         <>
-      <Hero {...hero} />
-      <Blocks
-        blocks={layout}
-        disableTopPadding={!hero || hero?.type === 'none' || hero?.type === 'lowImpact'}
-      />
+        <Hero {...hero} />
+        <Blocks
+          blocks={layout}
+          disableTopPadding={!hero || hero?.type === 'none' || hero?.type === 'lowImpact'}
+        />
         </>
       )
       }
@@ -91,6 +94,7 @@ export async function generateMetadata({ params: { slug = 'home' } }): Promise<M
   const { isEnabled: isDraftMode } = draftMode()
 
   let page: Page | null = null
+  let categories: Category[] | null = null
 
   try {
     page = await fetchDoc<Page>({
@@ -98,6 +102,8 @@ export async function generateMetadata({ params: { slug = 'home' } }): Promise<M
       slug,
       draft: isDraftMode,
     })
+
+    categories = await fetchDocs<Category>('categories')
   } catch (error) {
     // don't throw an error if the fetch fails
     // this is so that we can render a static home page for the demo
