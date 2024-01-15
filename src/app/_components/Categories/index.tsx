@@ -1,10 +1,10 @@
 import React from 'react'
 import Link from 'next/link'
 
+import { Category } from '../../../payload/payload-types'
 import CategoryCard from './CategoryCard'
 
 import classes from './index.module.scss'
-import { Category } from '../../../payload/payload-types'
 
 
 const Categories = ({ categories }: { categories: Category[] }) => {
