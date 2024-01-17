@@ -29,7 +29,7 @@ const Proudcts = async () => {
   return (
     <div className={classes.container}>
         <Gutter className={classes.products}>
-            <Filters/>
+            <Filters categories={categories}/>
             <Blocks blocks={page.layout} disableTopPadding={true}/>
         </Gutter>
         <HR/>
