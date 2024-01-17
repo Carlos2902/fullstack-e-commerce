@@ -14,8 +14,16 @@ const Filters = ({ categories }: {categories: Category[]}) => {
   const { categoryFilters, sort, setCategoryFilters, setSort} =
   useFilter()
 
-  const handleCategories = (categoryId: string) => {}
-  const handleSort = () => {}
+  const handleCategories = (categoryId: string) => {
+    if(categoryFilters.includes(categoryId)){
+      const updatedCategories = categoryFilters.filter((id)=>id!==categoryId)
+
+      setCategoryFilters (updatedCategories)
+    } else{
+      setCategoryFilters([...categoryFilters, categoryId])
+    }
+  }
+  const handleSort = (value: string) => setSort(value)
 
   return (
     <div className={classes.filters}>
